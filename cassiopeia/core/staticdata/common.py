@@ -80,7 +80,7 @@ class Image(CassiopeiaObject):
         return configuration.settings.pipeline.get(PILImage, query={"url": self.url})
 
     @lazy_property
-    def sprite_info(self) -> Sprite:
+    def spriteInfo(self) -> Sprite:
         sprite = Sprite(
             w=self._data[ImageData].width,
             h=self._data[ImageData].height,
