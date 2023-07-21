@@ -165,6 +165,7 @@ class Resource(Enum):
 class Side(Enum):
     blue = 100
     red = 200
+    others = 0
 
 
 class MatchType(Enum):  # TODO: Can we combine with GameType somehow?
@@ -176,6 +177,7 @@ class MatchType(Enum):  # TODO: Can we combine with GameType somehow?
 
 class GameMode(Enum):
     aram = "ARAM"
+    arena = "CHERRY"
     ascension = "ASCENSION"
     classic = "CLASSIC"
     showdown = "FIRSTBLOOD"
@@ -475,6 +477,7 @@ class Tower(Enum):
 # https://github.com/RiotGames/developer-relations/issues/574
 class Queue(Enum):
     custom = "CUSTOM"  # 0
+    arena = "ARENA" #1700
     deprecated_blind_fives = "NORMAL_5x5_BLIND"  # 2
     deprecated_ranked_solo_fives = "CLASSIC"  # 4
     deprecated_ranked_premade_fives = "RANKED_PREMADE_5x5"  # 6
@@ -650,6 +653,7 @@ QUEUE_IDS = {
     Queue.deprecated_nexus_blitz: 1200,  # Nexus Blitz map    Nexus Blitz Deprecated in patch 9.2 in favor of queueId 1300
     Queue.nexus_blitz: 1300,  # Nexus Blitz map    Nexus Blitz
     Queue.ultimate_spellbook: 1400,  # Summoner's Rift   Ultimate Spellbook
+    Queue.arena: 1700, # Arena mod
     Queue.tutorial1: 2000,  # Summoner's Rift  Tutorial 1
     Queue.tutorial2: 2010,  # Summoner's Rift  Tutorial 2
     Queue.tutorial3: 2020,  # Summoner's Rift  Tutorial 3
