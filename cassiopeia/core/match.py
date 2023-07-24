@@ -249,6 +249,7 @@ class ParticipantData(CoreData):
             "summonerName": kwargs.get("summonerName", None),
             "teamEarlySurrendered": kwargs.get("teamEarlySurrendered", None),
             "teamId": kwargs.get("teamId", None),
+            "playerSubteamId": kwargs.get("playerSubteamId", None),
             "teamPosition": kwargs.get("teamPosition", None),
         }
         stats = {
@@ -317,6 +318,8 @@ class ParticipantData(CoreData):
             "spell4Casts": kwargs.pop("spell4Casts", None),
             "summoner1Casts": kwargs.pop("summoner1Casts", None),
             "summoner2Casts": kwargs.pop("summoner2Casts", None),
+            "subteamPlacement": kwargs.get("subteamPlacement", None),
+            "placement": kwargs.get("placement", None),            
             "timeCCingOthers": kwargs.pop("timeCCingOthers", None),
             "timePlayed": kwargs.pop("timePlayed", None),
             "totalDamageDealt": kwargs.pop("totalDamageDealt", None),
@@ -1424,6 +1427,21 @@ class ParticipantStats(CassiopeiaObject):
     @load_match_on_attributeerror
     def physical_damage_taken(self) -> int:
         return self._data[ParticipantStatsData].physicalDamageTaken
+
+    @property
+    @load_match_on_attributeerror
+    def placement(self) -> int:
+        return self._data[ParticipantStatsData].placement
+    
+    @property
+    @load_match_on_attributeerror
+    def player_subteam_id(self) -> int:
+        return self._data[ParticipantStatsData].playerSubteamId
+    
+    @property
+    @load_match_on_attributeerror
+    def subteam_placement(self) -> int:
+        return self._data[ParticipantStatsData].subteamPlacement    
 
     @property
     @load_match_on_attributeerror
