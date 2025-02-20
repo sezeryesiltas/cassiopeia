@@ -215,6 +215,7 @@ class Tier(Enum):
     grandmaster = "GRANDMASTER"
     master = "MASTER"
     diamond = "DIAMOND"
+    emerald = "EMERALD"
     platinum = "PLATINUM"
     gold = "GOLD"
     silver = "SILVER"
@@ -566,7 +567,12 @@ class Queue(Enum):
     tutorial3 = "TUTORIAL_3"  # Summoner's Rift  Tutorial 3
 
     def from_id(id: int):
-        return {i: queue for queue, i in QUEUE_IDS.items()}[id]
+        try:
+            resp = {i: queue for queue, i in QUEUE_IDS.items()}[id]
+        except KeyError:
+            return Queue.custom
+        return resp if resp else Queue.custom
+
 
     @property
     def id(self):

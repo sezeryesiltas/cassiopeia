@@ -262,8 +262,10 @@ else:  # Use requests
             elif "IMAGE/" in content_type:
                 body = r.content
             else:
-                body = r.content.decode("utf-8")
-
+                if "APPLICATION/JSON" in content_type:
+                    body = r.json()
+                else:
+                    body = r.content.decode("utf-8")
             return body, response_headers
 
         @contextmanager

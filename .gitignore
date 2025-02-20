@@ -162,3 +162,5 @@ target/
 .env/share/doc/networkx-3.0/examples/subclass/plot_antigraph.py
 .env/share/doc/networkx-3.0/examples/subclass/plot_printgraph.py
 .env/share/doc/networkx-3.0/examples/subclass/README.txt
+.env/bin/pip3.12
+.env/bin/python3.12

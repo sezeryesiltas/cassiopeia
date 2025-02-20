@@ -1771,7 +1771,10 @@ class Participant(CassiopeiaObject):
         except AttributeError:
             pass
         try:
-            kwargs["name"] = self._data[ParticipantData].summonerName
+            if self._data[ParticipantData].summonerName is not None and self._data[ParticipantData].summonerName != "":
+                kwargs["name"] = self._data[ParticipantData].summonerName
+            else:
+                kwargs["name"] = self._data[ParticipantData].riotIdGameName + "#" + self._data[ParticipantData].riotIdTagline
         except AttributeError:
             pass
         kwargs["puuid"] = self._data[ParticipantData].puuid
